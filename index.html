@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who is my booo?😍</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- First Page -->
+    <div class="container" id="main-container">
+        <!-- FIRST PAGE PHOTO (Change 'first-photo.jpg' to your filename) -->
+        <img src="first_final.jpeg" alt="Cute teaser" class="page-img">
+        
+        <h1 id="question">Who is my booo?😍</h1>
+        <div class="btn-group">
+            <button id="yes-btn">Meeeee🙈🙈</button>
+            <button id="no-btn">Not Me🤷‍♀️</button>
+        </div>
+    </div>
+
+    <!-- Second Page / Success Message -->
+    <div class="container hidden" id="success-container">
+        <h1>Awwwww🫠</h1>
+        <p>Off Course its you😍</p>
+        
+        <!-- SUCCESS PAGE PHOTO (Change 'success-photo.jpg' to your filename) -->
+        <img src="Second.jpeg" alt="Date photo" class="page-img">
+    </div>
+
+    <script>
+        const noBtn = document.getElementById('no-btn');
+        const yesBtn = document.getElementById('yes-btn');
+        const mainContainer = document.getElementById('main-container');
+        const successContainer = document.getElementById('success-container');
+
+        function moveButton() {
+            noBtn.style.position = 'fixed';
+            const padding = 50;
+            const maxX = window.innerWidth - noBtn.offsetWidth - padding;
+            const maxY = window.innerHeight - noBtn.offsetHeight - padding;
+            
+            const randomX = Math.max(padding, Math.floor(Math.random() * maxX));
+            const randomY = Math.max(padding, Math.floor(Math.random() * maxY));
+
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
+        }
+
+        noBtn.addEventListener('mouseover', moveButton);
+        noBtn.addEventListener('touchstart', moveButton);
+
+        yesBtn.addEventListener('click', () => {
+            mainContainer.classList.add('hidden');
+            successContainer.classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
